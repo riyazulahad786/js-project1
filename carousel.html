@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>carousel</title>
+        <style>
+            *{box-sizing: border-box;
+            }
+            body{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                margin: 0;
+                min-height: 100vh;
+            }
+            .carousel{
+                box-shadow: 2px 2px 5px rgba( green, blue, alpha);
+                overflow: hidden;
+                height: 500px;
+                width: 500px;
+            }
+            .img-container{
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                transform: translateX(0);
+            }
+            img{
+                object-fit: cover;
+                height: 5oopx;
+                width: 500px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="carousel">
+            <div class="image-container" id="imgs">
+                <img src="lisa.jpg" alt=""
+                />
+
+                <img src="hse.jpg" alt=""/>
+                <img src="kim.jpg" alt=""/>
+
+            </div>
+
+        </div>
+        <script>
+            const imgs =  document.getElementById("imgs");
+            const img = document.querySelectorAll("#imgs img");
+
+            let idx = 0;
+
+            function run(){
+                idx++;
+                
+                if (idx>img.length - 1){
+                    idx=0;
+                }
+                imgs.style.transform="translateX(${-idx * 500}";
+            }
+            setInterval(run,2000);
+        </script>
+    </body>
+</html>
